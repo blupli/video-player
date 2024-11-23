@@ -108,7 +108,6 @@
 		position: relative;
 
 		& > .icon {
-			font-size: 1rem;
 			cursor: pointer;
 			width: 2rem;
 			height: 2rem;
@@ -120,6 +119,10 @@
 			border: none;
 			color: white;
 			transition: border-radius 100ms ease-in-out;
+
+			svg {
+				width: 1rem;
+			}
 
 			&:hover {
 				background-color: rgba(255, 255, 255, 0.2);

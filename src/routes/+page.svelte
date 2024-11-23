@@ -33,6 +33,10 @@
 			description: 'Speech Detection to Storytelling Visuals'
 		}
 	];
+
+	let selectedVideoIndex = $state(0);
 </script>
 
-<VideoContainer width="100%" height="75vh" {videos} background="purple" volume={0} />
+<VideoContainer width="100%" height="75vh" {videos} volume={0} bind:selectedVideoIndex>
+	Video: {selectedVideoIndex}
+</VideoContainer>
