@@ -64,7 +64,18 @@
 			<track kind="captions" src="captions.vtt" srclang="en" label="English" />
 		</video>
 	{/if}
-	<div class="gradient-overlay"></div>
+	<div class="gradient-overlay">
+    <div class="content">
+      {#if children}
+        {@render children()}
+      {:else}
+        <h1>{selectedVideo.title}</h1>
+      {/if}
+    </div>
+    <div class="controls">
+
+    </div>
+  </div>
 </div>
 
 <style lang="scss">
