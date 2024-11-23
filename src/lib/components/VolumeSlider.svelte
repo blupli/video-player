@@ -33,7 +33,7 @@
 	}
 
 	function onDocumentMove(e: MouseEvent) {
-		if (!containerElm.contains(e.target as Node)) {
+		if (containerElm && !containerElm.contains(e.target as Node)) {
 			visible = false;
 		}
 	}

@@ -1,6 +1,6 @@
 {
 	"name": "@blupli/video-player",
-	"version": "0.0.2",
+	"version": "0.0.4",
 	"description": "The video player component that used by Blupli's website.",
 	"keywords": [
 		"video",

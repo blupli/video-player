@@ -33,6 +33,7 @@
 	let selectedVideo = $derived(videos[selectedVideoIndex]);
 
 	let videoElement: HTMLVideoElement | null = $state(null);
+	let progressBarElement: HTMLButtonElement | null = $state(null);
 
 	let currentTime = $state(0);
 	let duration = $state(0);
@@ -64,9 +65,8 @@
 	}
 
 	function onProgressBarClick(e: MouseEvent) {
-		if (!videoElement) return;
-		const progress = e.target as HTMLElement;
-		const rect = progress.getBoundingClientRect();
+		if (!videoElement || !progressBarElement) return;
+		const rect = progressBarElement.getBoundingClientRect();
 		const x = e.clientX - rect.left;
 		const width = rect.width;
 		const percentage = x / width;
@@ -157,7 +157,12 @@
 							volume = e.muted ? 0 : e.volume;
 						}}
 					/>
-					<button class="progress-bar" onclick={onProgressBarClick} aria-label="Seek video">
+					<button
+						class="progress-bar"
+						bind:this={progressBarElement}
+						onclick={onProgressBarClick}
+						aria-label="Seek video"
+					>
 						<div
 							class="progress"
 							style:width="{((currentTime / duration) * 100).toFixed(2)}%"
