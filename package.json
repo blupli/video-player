@@ -1,11 +1,15 @@
 {
 	"name": "@blupli/video-player",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"description": "The video player component that used by Blupli's website.",
 	"keywords": [
 		"video",
 		"player",
 		"component",
+		"progress",
+		"progress-bar",
+		"volume",
+		"volume-slider",
 		"svelte",
 		"blupli",
 		"blupli.com"

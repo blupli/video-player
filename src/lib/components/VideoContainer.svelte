@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount, type Snippet } from 'svelte';
 	import VolumeSlider from './VolumeSlider.svelte';
+	import ProgressBar from './ProgressBar.svelte';
 
 	type Props = {
 		videos: {
@@ -62,15 +63,6 @@
 
 	function onVideoEnded() {
 		modifyVideoIndex(1);
-	}
-
-	function onProgressBarClick(e: MouseEvent) {
-		if (!videoElement || !progressBarElement) return;
-		const rect = progressBarElement.getBoundingClientRect();
-		const x = e.clientX - rect.left;
-		const width = rect.width;
-		const percentage = x / width;
-		videoElement.currentTime = videoElement.duration * percentage;
 	}
 
 	async function tryToPlay() {
@@ -157,17 +149,13 @@
 							volume = e.muted ? 0 : e.volume;
 						}}
 					/>
-					<button
-						class="progress-bar"
-						bind:this={progressBarElement}
-						onclick={onProgressBarClick}
-						aria-label="Seek video"
-					>
-						<div
-							class="progress"
-							style:width="{((currentTime / duration) * 100).toFixed(2)}%"
-						></div>
-					</button>
+					<ProgressBar
+						progress={currentTime / duration}
+						onSeek={(progress) => {
+							if (videoElement) videoElement.currentTime = progress * duration;
+						}}
+						maxWidth="300px"
+					/>
 				</div>
 				<div class="info">
 					{selectedVideo.description}

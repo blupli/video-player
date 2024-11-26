@@ -9,6 +9,6 @@ pnpm install @blupli/video-player
 ## Usage
 ```svelte
 <script>
-  import { VideoContainer, VolumeSlider } from '@blupli/video-player';
+  import { VideoContainer, VolumeSlider, ProgressBar, SingleVideoPlayer } from '@blupli/video-player';
 </script>
 ```

@@ -1,4 +1,5 @@
 <script>
+	import SingleVideoPlayer from '$lib/components/SingleVideoPlayer.svelte';
 	import VideoContainer from '$lib/components/VideoContainer.svelte';
 
 	const videos = [
@@ -34,9 +35,12 @@
 		}
 	];
 
-	let selectedVideoIndex = $state(0);
+	// let selectedVideoIndex = $state(0);
 </script>
 
+<!-- 
 <VideoContainer width="100%" height="75vh" {videos} volume={0} bind:selectedVideoIndex>
 	Video: {selectedVideoIndex}
-</VideoContainer>
+</VideoContainer> -->
+
+<SingleVideoPlayer src={videos[1].src} width="100%" height="50vh" />
