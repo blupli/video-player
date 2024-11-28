@@ -137,7 +137,7 @@
 			z-index: 1;
 			width: var(--width);
 			height: var(--height);
-			object-fit: cover;
+			object-fit: contain;
 			top: 0;
 			left: 0;
 		}
