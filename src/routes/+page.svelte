@@ -38,9 +38,8 @@
 	// let selectedVideoIndex = $state(0);
 </script>
 
-<!-- 
-<VideoContainer width="100%" height="75vh" {videos} volume={0} bind:selectedVideoIndex>
-	Video: {selectedVideoIndex}
-</VideoContainer> -->
+<VideoContainer width="100%" height="75vh" {videos} volume={0}></VideoContainer>
 
-<SingleVideoPlayer src={videos[1].src} width="100%" height="50vh" />
+<div style="background: black;">
+	<SingleVideoPlayer src={videos[1].src} width="100%" height="50vh" />
+</div>

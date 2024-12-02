@@ -40,7 +40,9 @@
 	let duration = $state(0);
 
 	function modifyVideoIndex(offset: number) {
-		selectedVideoIndex = (selectedVideoIndex + offset) % videos.length;
+		let videoIndex = (selectedVideoIndex + offset) % videos.length;
+		if (videoIndex < 0) videoIndex = videos.length - 1;
+		selectedVideoIndex = videoIndex;
 
 		if (offset > 0) {
 			const nextContentButton = document.querySelector('.next-content');
